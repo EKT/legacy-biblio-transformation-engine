@@ -31,8 +31,8 @@ public class TransformationEngine  {
 	DataLoader dataLoader = null;
 	OutputGenerator outputGenerator = null; //the output Generator
 	TransformationWorkflow workflow = null;   //the classifiers list
-	List<Condition> processingConditions = null;
-	List<Condition> outputConditions = null;
+	List<Condition> processingConditions = new ArrayList<Condition>();
+	List<Condition> outputConditions = new ArrayList<Condition>();
 	
 	// Define a static logger variable
 	static Logger logger = Logger.getLogger(TransformationEngine.class);

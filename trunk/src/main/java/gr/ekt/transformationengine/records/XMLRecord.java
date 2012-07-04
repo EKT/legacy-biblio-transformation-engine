@@ -1,6 +1,6 @@
 package gr.ekt.transformationengine.records;
 
-import gr.ekt.transformationengine.core.Record;
+import gr.ekt.transformationengine.records.SimpleRecord;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import org.dom4j.Element;
  * Date: $Date: 2007-9-21 (Fri, 21 Sep 2007) $
  *
  */
-public abstract class XMLRecord extends Record{
+public abstract class XMLRecord extends SimpleRecord{
 
 	public Element currentElement = null;
 
@@ -37,6 +37,9 @@ public abstract class XMLRecord extends Record{
 
 	}
 
+	/**
+	 * Given a fieldname, return the xpath that shoulf get the value of this field from the xml
+	 */
 	public abstract String mapFieldNameWithXpath(String fieldName);
 
 	@Override
@@ -91,13 +94,6 @@ public abstract class XMLRecord extends Record{
 	}
 
 	@Override
-	public void addField(String fieldName, ArrayList<String> fieldValues) {	
-		for (String s : fieldValues){
-				currentElement.addElement(fieldName).addText(s);
-		}
-	}
-
-	@Override
 	public void removeField(String fieldName) {
 		this.removeFieldByXpath(mapFieldNameWithXpath(fieldName));
 	}
@@ -116,5 +112,10 @@ public abstract class XMLRecord extends Record{
 				}
 			}
 		}
+	}
+
+	@Override
+	public void addValueToField(String fieldName, String fieldValue) {
+		currentElement.addElement(fieldName).addText(fieldValue);
 	}
 }

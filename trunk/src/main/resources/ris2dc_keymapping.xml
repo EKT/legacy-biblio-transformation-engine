@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <keymapping>
     <map>
-        <key_before>TI</key_before>
-        <key_after>Title2</key_after>
+    	<!-- Title -->
+        <key_before>T1</key_before>
+        <key_after>dc.title</key_after>
     </map>
-    
+    <map>
+    	<!-- Author -->
+        <key_before>AU</key_before>
+        <key_after>dc.contributor.creator</key_after>
+    </map>
+    <map>
+    	<!-- Publication Title -->
+        <key_before>TY</key_before>
+        <key_after>dc.type</key_after>
+    </map>
+	<map>
+    	<!-- Publication Name -->
+        <key_before>JF</key_before>
+        <key_after>dc.source</key_after>
+    </map>
+	<map>
+    	<!-- Author Keywords -->
+        <key_before>KW</key_before>
+        <key_after>dc.subject</key_after>
+    </map>
+	<map>
+    	<!-- Abstract -->
+        <key_before>AB</key_before>
+        <key_after>dc.description.abstract</key_after>
+    </map>
+    <map>
+    	<!-- Publication year -->
+        <key_before>PY</key_before>
+        <key_after>dc.date</key_after>
+    </map>
 </keymapping>

@@ -13,7 +13,8 @@ import org.dom4j.io.SAXReader;
 import org.jaxen.function.NameFunction;
 
 /**
- * @author kstamatis
+ * @author Kostas Stamatis
+ * @author National Documentation Center
  *
  */
 public class FileKeyRenameModifier extends KeyRenameModifier {
@@ -33,17 +34,6 @@ public class FileKeyRenameModifier extends KeyRenameModifier {
 	 */
 	@Override
 	public void loadMapping() {
-		// TODO Auto-generated method stub
-
-		File directory = new File (".");
-		try {
-			System.out.println ("Current directory's canonical path: " 
-					+ directory.getCanonicalPath()); 
-			System.out.println ("Current directory's absolute  path: " 
-					+ directory.getAbsolutePath());
-		}catch(Exception e) {
-			System.out.println("Exceptione is ="+e.getMessage());
-		}
 
 		//Read the mapping from the filename
 		try {
