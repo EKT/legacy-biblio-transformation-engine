@@ -26,10 +26,8 @@ import org.dom4j.io.XMLWriter;
 import gr.ekt.transformationengine.core.OutputGenerator;
 import gr.ekt.transformationengine.core.Record;
 import gr.ekt.transformationengine.core.RecordSet;
-import gr.ekt.transformationengine.dspace.DSpaceMetadata;
 import gr.ekt.transformationengine.dspace.ESEMetadata;
-import gr.ekt.transformationengine.records.DspaceRecord;
-import gr.ekt.transformationengine.records.ESERecord;
+import gr.ekt.transformationengine.records.MapEseRecord;
 
 /**
  * @author kstamatis
@@ -79,9 +77,9 @@ public class ESEOutputGenerator extends OutputGenerator {
 			Record tmpRecord= (Record)it.next();
 
 			//== if the record is PandektisXML 
-			if (tmpRecord instanceof ESERecord){
+			if (tmpRecord instanceof MapEseRecord){
 				
-				ESERecord eseRecord = (ESERecord)tmpRecord;
+				MapEseRecord eseRecord = (MapEseRecord)tmpRecord;
 				
 				Element record = records.addElement("record");
 				
@@ -98,7 +96,6 @@ public class ESEOutputGenerator extends OutputGenerator {
 				Element eurecord = metadataEle.addElement(new QName("record",europeana));
 				eurecord.addNamespace("dc", "http://purl.org/dc/elements/1.1/");
 				eurecord.addNamespace("dcterms", "http://purl.org/dc/terms/");
-				//eurecord.addNamespace("europeana", "http://www.europeana.eu/schemas/ese/");
 				
 				for (String field : mapping.keySet()){
 					List<String> resultList = tmpRecord.getByName(field);
