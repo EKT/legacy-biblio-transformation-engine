@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keymapping>
+    <map>
+    	<!-- Title -->
+        <key_before>Title</key_before>
+        <key_after>dc.title</key_after>
+    </map>
+    <map>
+    	<!-- Author -->
+        <key_before>Author</key_before>
+        <key_after>dc.contributor.creator</key_after>
+    </map>
+	<map>
+    	<!-- Abstract -->
+        <key_before>Abstract</key_before>
+        <key_after>dc.description.abstract</key_after>
+    </map>
+	<map>
+    	<!-- Publisher -->
+        <key_before>Publisher</key_before>
+        <key_after>dc.publisher</key_after>
+    </map>
+    <map>
+    	<!-- Publication source -->
+        <key_before>Journal</key_before>
+        <key_after>dc.source</key_after>
+    </map>
+	<map>
+    	<!-- International Standard Serial Number (ISSN) -->
+        <key_before>ISSN</key_before>
+        <key_after>dc.identifier</key_after>
+    </map>
+    <map>
+    	<!-- International Standard Book Number (ISBN) -->
+        <key_before>ISBN</key_before>
+        <key_after>dc.identifier</key_after>
+    </map>
+    <map>
+    	<!-- Digital Object Identifier (DOI) -->
+        <key_before>DOI</key_before>
+        <key_after>dc.identifier</key_after>
+    </map>
+    <map>
+    	<!-- Publication Year -->
+        <key_before>Year</key_before>
+        <key_after>dc.date</key_after>
+    </map>
+</keymapping>
