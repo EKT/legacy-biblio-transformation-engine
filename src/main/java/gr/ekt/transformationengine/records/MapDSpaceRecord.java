@@ -49,7 +49,7 @@ public class MapDSpaceRecord extends MapRecord {
 	/**
 	 * @param recordValue
 	 */
-	public MapDSpaceRecord(Map<String, List<String>> recordValue) {
+	public MapDSpaceRecord(Map<String, List<Object>> recordValue) {
 		super(recordValue);
 		// TODO Auto-generated constructor stub
 	}

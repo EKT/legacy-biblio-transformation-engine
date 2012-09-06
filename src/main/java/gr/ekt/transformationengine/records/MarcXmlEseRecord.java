@@ -65,11 +65,15 @@ public abstract class MarcXmlEseRecord extends SimpleRecord {
 	 * @see gr.ekt.transformationengine.records.SimpleRecord#getByName(java.lang.String)
 	 */
 	@Override
-	public List<String> getByName(String elementName) {
+	public List<Object> getByName(String elementName) {
 		Map<String, Character> mapping = mapFieldNameWithMarcCode(elementName);
 		
 		String key = (String)mapping.keySet().toArray()[0];
-		return getByDatafieldArray(key, new char[]{mapping.get(key)});
+		List<String> tmp = getByDatafieldArray(key, new char[]{mapping.get(key)});
+		List<Object> result = new ArrayList<Object>();
+		for (String s : tmp)
+			result.add(s);
+		return result;
 	}
 
 	/* (non-Javadoc)
@@ -93,7 +97,7 @@ public abstract class MarcXmlEseRecord extends SimpleRecord {
 	 * @see gr.ekt.transformationengine.records.SimpleRecord#removeValueFromField(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public void removeValueFromField(String fieldName, String value) {
+	public void removeValueFromField(String fieldName, Object value) {
 		// TODO Auto-generated method stub
 		System.out.println("removeValueFromField: Not implements yet!");
 	}
@@ -102,7 +106,7 @@ public abstract class MarcXmlEseRecord extends SimpleRecord {
 	 * @see gr.ekt.transformationengine.records.SimpleRecord#addValueToField(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public void addValueToField(String fieldName, String fieldValue) {
+	public void addValueToField(String fieldName, Object fieldValue) {
 		// TODO Auto-generated method stub
 		System.out.println("addValueToField: Not implements yet!");
 	}

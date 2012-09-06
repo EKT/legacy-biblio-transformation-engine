@@ -166,5 +166,11 @@ public class TransformationEngine  {
 
 	public void setWorkflow(TransformationWorkflow workflow) {
 		this.workflow = workflow;
+	}
+
+	public DataLoader getDataLoader() {
+		return dataLoader;
 	}	
+	
+	
 }

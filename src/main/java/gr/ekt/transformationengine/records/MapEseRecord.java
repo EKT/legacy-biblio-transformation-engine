@@ -1,4 +1,3 @@
-
 // Copyright (c) 2007-2012 National Documentation Centre (EKT, www.ekt.gr)
 // All rights reserved.
 //
@@ -27,6 +26,7 @@
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // 
 ///////////////////////////////////////////////////////////////////////////////
+
 /**
  * 
  */
@@ -48,7 +48,7 @@ public class MapEseRecord extends MapRecord {
 	/**
 	 * @param recordValue
 	 */
-	public MapEseRecord(Map<String, List<String>> recordValue) {
+	public MapEseRecord(Map<String, List<Object>> recordValue) {
 		super(recordValue);
 		// TODO Auto-generated constructor stub
 	}

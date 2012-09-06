@@ -32,6 +32,7 @@ package gr.ekt.transformationengine.dataloaders;
 import gr.ekt.transformationengine.core.DataLoader;
 import gr.ekt.transformationengine.core.RecordSet;
 import gr.ekt.transformationengine.records.MapRecord;
+//import gr.ekt.transformationengine.records.MapRecord;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -48,12 +49,14 @@ import jxl.WorkbookSettings;
 
 import org.apache.log4j.Logger;
 
+
+
 public class ExcelDataLoader extends DataLoader {
 
 	static Logger logger = Logger.getLogger(ExcelDataLoader.class);
 
 	private String fileName;
-	private int sheetIndex;
+	private int sheetIndex=0;
 
 	/*
 	 * Default constructor
@@ -83,14 +86,14 @@ public class ExcelDataLoader extends DataLoader {
 
 			for (int i=1; i<sheet.getRows(); i++)
 			{
-				Map<String, List<String>> map = new HashMap<String, List<String>>();
+				Map<String, List<Object>> map = new HashMap<String, List<Object>>();
 				for (int j=0; j<sheet.getColumns(); j++)
 				{  				 
 					Cell headCell = sheet.getCell(j,0);
 					String headString = headCell.getContents().trim();
 					Cell valuesCell = sheet.getCell(j,i);
 					String valuesString = valuesCell.getContents();
-					ArrayList<String> tmp = new ArrayList<String>();  		
+					ArrayList<Object> tmp = new ArrayList<Object>();  		
 					tmp.add(valuesString);
 					map.put(headString, tmp);     
 

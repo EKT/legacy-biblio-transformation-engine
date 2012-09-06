@@ -64,9 +64,9 @@ public abstract class KeyRenameModifier extends Modifier {
 		// TODO Auto-generated method stub
 
 		for (String key : keyMapping.keySet()){
-			List<String> values = record.getByName(key);
-			ArrayList<String> values2 = new ArrayList<String>();
-			for (String s : values){
+			List<Object> values = record.getByName(key);
+			ArrayList<Object> values2 = new ArrayList<Object>();
+			for (Object s : values){
 				values2.add(s);
 			}
 			if (values!=null){

@@ -54,8 +54,6 @@ public class ISIHTMLDataLoader extends DataLoader{
 
 	static Logger logger = Logger.getLogger(ISIHTMLDataLoader.class);
 
-	private String fileName;
-
 	/*
 	 * Default constructor
 	 */
@@ -73,7 +71,7 @@ public class ISIHTMLDataLoader extends DataLoader{
 	public RecordSet loadData(){
 
 
-		if ((fileName==null)|| (fileName=="")){
+		if ((getFileName()==null)|| (getFileName()=="")){
 			logger.info("No File name!");
 			return null;
 		}
@@ -84,7 +82,7 @@ public class ISIHTMLDataLoader extends DataLoader{
 
 			StringBuffer fileData = new StringBuffer(1000);
 			BufferedReader reader = new BufferedReader(
-					new FileReader(fileName));
+					new FileReader(getFileName()));
 			char[] buf = new char[1024];
 			int numRead=0;
 			while((numRead=reader.read(buf)) != -1){
@@ -103,12 +101,12 @@ public class ISIHTMLDataLoader extends DataLoader{
 			for (Iterator iter = records.iterator(); iter.hasNext(); ) {
 				Element record = (Element) iter.next();
 				
-				Map<String, List<String>> map = new HashMap<String, List<String>>();
+				Map<String, List<Object>> map = new HashMap<String, List<Object>>();
 				
 				for (Object trO : record.elements("tr")){
 					Element tr = (Element)trO;
 					List tds = tr.elements("td");
-					ArrayList<String> tmp = new ArrayList<String>();
+					ArrayList<Object> tmp = new ArrayList<Object>();
 					tmp.add(((Element)tds.get(1)).getText().trim());
 					map.put(((Element)tds.get(0)).getText().trim(), tmp);
 				}
@@ -125,20 +123,6 @@ public class ISIHTMLDataLoader extends DataLoader{
 		}
 
 		return rs;
-	}
-
-	/**
-	 * @return the fileName
-	 */
-	public String getFileName() {
-		return fileName;
-	}
-
-	/**
-	 * @param fileName the fileName to set
-	 */
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
 	}
 }
 

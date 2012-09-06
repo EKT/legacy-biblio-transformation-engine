@@ -39,7 +39,7 @@ import java.util.Map;
  * 
  * @author Nikos Houssos (nhoussos@ekt.gr)
  * @author Kosta Stamatis (kstamatis@ekt.gr)
- * @copyright 2011 - National Documentation Centre (EKT, www.ekt.gr)
+ * @copyright 2011 - National Documentation Center
  */
 public abstract class DataLoadingSpec {
 	

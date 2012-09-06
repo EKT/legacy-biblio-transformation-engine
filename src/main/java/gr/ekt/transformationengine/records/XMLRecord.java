@@ -72,7 +72,7 @@ public abstract class XMLRecord extends SimpleRecord{
 	public abstract String mapFieldNameWithXpath(String fieldName);
 
 	@Override
-	public List<String> getByName(String fieldName){
+	public List<Object> getByName(String fieldName){
 		String xpath = mapFieldNameWithXpath(fieldName);
 		return getByXpath(xpath);
 	}
@@ -81,9 +81,9 @@ public abstract class XMLRecord extends SimpleRecord{
 	 * (non-Javadoc)
 	 * @see gr.ekt.repositories.utils.classification.core.Record#getByName(java.lang.String)
 	 */
-	public List<String> getByXpath(String xpath){
+	public List<Object> getByXpath(String xpath){
 
-		List<String> result = new ArrayList<String>();
+		List<Object> result = new ArrayList<Object>();
 
 		if (currentElement == null){return result;}
 		//-- if the criterion is authors
@@ -114,9 +114,9 @@ public abstract class XMLRecord extends SimpleRecord{
 	public void printByName(String xpath){
 
 		//System.out.println("XMLRecord::printByName");
-		List<String> result = getByName(xpath);
-		for (String s : result){
-			System.out.println(s+" | ");
+		List<Object> result = getByName(xpath);
+		for (Object s : result){
+			System.out.println(s.toString()+" | ");
 		}
 
 		return ;
@@ -144,7 +144,7 @@ public abstract class XMLRecord extends SimpleRecord{
 	}
 
 	@Override
-	public void addValueToField(String fieldName, String fieldValue) {
-		currentElement.addElement(fieldName).addText(fieldValue);
+	public void addValueToField(String fieldName, Object fieldValue) {
+		currentElement.addElement(fieldName).addText(fieldValue.toString());
 	}
 }

@@ -48,8 +48,6 @@ public class TSVDataLoader extends DataLoader{
 
 	static Logger logger = Logger.getLogger(TSVDataLoader.class);
 
-	private String fileName;
-
 	/*
 	 * Default constructor
 	 */
@@ -67,7 +65,7 @@ public class TSVDataLoader extends DataLoader{
 	public RecordSet loadData(){
 
 
-		if ((fileName==null)|| (fileName=="")){
+		if ((getFileName()==null)|| (getFileName()=="")){
 			logger.info("No File name!");
 			return null;
 		}
@@ -75,7 +73,7 @@ public class TSVDataLoader extends DataLoader{
 		RecordSet rs = new RecordSet();
 
 		try {
-			BufferedReader readbuffer = new BufferedReader(new FileReader(fileName));
+			BufferedReader readbuffer = new BufferedReader(new FileReader(getFileName()));
 			String strRead;
 
 			boolean firstLine = true;
@@ -87,9 +85,9 @@ public class TSVDataLoader extends DataLoader{
 				}
 				else {
 					String valuesArray[] = strRead.split("\t");
-					Map<String, List<String>> map = new HashMap<String, List<String>>();
+					Map<String, List<Object>> map = new HashMap<String, List<Object>>();
 					for (int i=0; i<valuesArray.length; i++){
-						ArrayList<String> tmp = new ArrayList<String>();
+						ArrayList<Object> tmp = new ArrayList<Object>();
 						tmp.add(valuesArray[i]);
 						map.put(headers[i], tmp);
 					}
@@ -104,20 +102,6 @@ public class TSVDataLoader extends DataLoader{
 		}
 
 		return rs;
-	}
-
-	/**
-	 * @return the fileName
-	 */
-	public String getFileName() {
-		return fileName;
-	}
-
-	/**
-	 * @param fileName the fileName to set
-	 */
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
 	}
 }
 
