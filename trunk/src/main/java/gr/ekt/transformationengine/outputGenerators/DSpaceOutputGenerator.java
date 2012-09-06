@@ -60,7 +60,7 @@ public class DSpaceOutputGenerator extends OutputGenerator{
 
 	String handlePrefix;
 
-	String outputDir = "dspace_data";
+	String outputDir = "./bte_output_dspace";
 	
 	static final DecimalFormat FORMAT = new DecimalFormat("000000");
 
@@ -77,7 +77,7 @@ public class DSpaceOutputGenerator extends OutputGenerator{
 		if( (recordSet == null ))
 			return false;
 
-		File file = new File("./output/" + outputDir);
+		File file = new File(outputDir);
 		if (file.exists())
 			this.deleteDirectory(file);
 		file.mkdir();
@@ -91,7 +91,7 @@ public class DSpaceOutputGenerator extends OutputGenerator{
 			if (tmpRecord instanceof MapDSpaceRecord){
 
 				//-- CREATE ITEMS DIRECTORY --
-				boolean success = (new File("./output/" + outputDir + "/" +FORMAT.format(counter) ) ).mkdir();
+				boolean success = (new File(outputDir + "/" +FORMAT.format(counter) ) ).mkdir();
 				
 				for (String schema : mappings.keySet()){
 
@@ -101,10 +101,10 @@ public class DSpaceOutputGenerator extends OutputGenerator{
 					root.addAttribute("schema", schema);
 					
 					for (String field : mappings.get(schema).keySet()){
-						List<String> resultList = tmpRecord.getByName(field);
+						List<Object> resultList = tmpRecord.getByName(field);
 
 						if (resultList.size()>0){
-							Iterator<String> it2 = resultList.iterator();
+							Iterator<Object> it2 = resultList.iterator();
 							while(it2.hasNext()){
 
 								String currentStringValue = (String)it2.next();
@@ -138,7 +138,7 @@ public class DSpaceOutputGenerator extends OutputGenerator{
 						if (!schema.equals("dc")){
 							filename = "metadata_"+schema;
 						}
-						FileOutputStream fos = new FileOutputStream("./output/" + outputDir + "/" + FORMAT.format(counter)+"/"+filename+".xml");
+						FileOutputStream fos = new FileOutputStream(outputDir + "/" + FORMAT.format(counter)+"/"+filename+".xml");
 						OutputFormat format = OutputFormat.createPrettyPrint();
 
 						XMLWriter writer = new XMLWriter(fos, format);
@@ -159,7 +159,7 @@ public class DSpaceOutputGenerator extends OutputGenerator{
 				//-- WRITE THE CONTENTS FILE
 				try {
 					BufferedWriter out = new BufferedWriter(new OutputStreamWriter
-							(new FileOutputStream("./output/" + outputDir + "/"+FORMAT.format(counter)+"/"+"contents"),"UTF8"));
+							(new FileOutputStream(outputDir + "/"+FORMAT.format(counter)+"/"+"contents"),"UTF8"));
 
 					out.close();
 				} catch (UnsupportedEncodingException e1) {
@@ -174,7 +174,7 @@ public class DSpaceOutputGenerator extends OutputGenerator{
 				try {
 					if (((MapDSpaceRecord)tmpRecord).getHandle() != null){
 						BufferedWriter outhandle = new BufferedWriter(new OutputStreamWriter
-								(new FileOutputStream("./output/" + outputDir + "/"+FORMAT.format(counter)+"/"+"handle"),"UTF8"));
+								(new FileOutputStream(outputDir + "/"+FORMAT.format(counter)+"/"+"handle"),"UTF8"));
 						outhandle.write(this.getHandlePrefix()+"/"+((MapDSpaceRecord)tmpRecord).getHandle());
 						outhandle.write("\n");
 						outhandle.close();

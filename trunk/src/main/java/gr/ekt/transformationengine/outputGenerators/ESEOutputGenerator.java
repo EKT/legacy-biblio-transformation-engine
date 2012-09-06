@@ -127,9 +127,9 @@ public class ESEOutputGenerator extends OutputGenerator {
 				eurecord.addNamespace("dcterms", "http://purl.org/dc/terms/");
 				
 				for (String field : mapping.keySet()){
-					List<String> resultList = tmpRecord.getByName(field);
+					List<Object> resultList = tmpRecord.getByName(field);
 					if (resultList.size()>0){
-						Iterator<String> it2 = resultList.iterator();
+						Iterator<Object> it2 = resultList.iterator();
 						while(it2.hasNext()){
 
 							String currentStringValue = (String)it2.next();

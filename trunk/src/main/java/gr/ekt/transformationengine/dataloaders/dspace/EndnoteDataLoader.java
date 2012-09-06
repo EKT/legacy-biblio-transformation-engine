@@ -48,8 +48,6 @@ public class EndnoteDataLoader extends DataLoader{
 
 	static Logger logger = Logger.getLogger(EndnoteDataLoader.class);
 
-	private String fileName;
-
 	/*
 	 * Default constructor
 	 */
@@ -67,7 +65,7 @@ public class EndnoteDataLoader extends DataLoader{
 	public RecordSet loadData(){
 
 
-		if ((fileName==null)|| (fileName=="")){
+		if ((getFileName()==null)|| (getFileName()=="")){
 			logger.info("No File name!");
 			return null;
 		}
@@ -75,11 +73,11 @@ public class EndnoteDataLoader extends DataLoader{
 		RecordSet rs = new RecordSet();
 
 		try {
-			BufferedReader readbuffer = new BufferedReader(new FileReader(fileName));
+			BufferedReader readbuffer = new BufferedReader(new FileReader(getFileName()));
 			String strRead;
 
 			boolean recordFinished = false;
-			Map<String, List<String>> map = new HashMap<String, List<String>>();
+			Map<String, List<Object>> map = new HashMap<String, List<Object>>();
 			String code = "";
 			
 			//First two lines are useless
@@ -90,7 +88,7 @@ public class EndnoteDataLoader extends DataLoader{
 				if (recordFinished){
 					MapDSpaceRecord mapRecord = new MapDSpaceRecord(map);
 					rs.addRecord(mapRecord);
-					map = new HashMap<String, List<String>>();
+					map = new HashMap<String, List<Object>>();
 					recordFinished=false;
 				}
 				else {
@@ -112,7 +110,7 @@ public class EndnoteDataLoader extends DataLoader{
 							map.get(code).add(value);
 						}
 						else {
-							ArrayList<String> values = new ArrayList<String>();
+							ArrayList<Object> values = new ArrayList<Object>();
 							values.add(value);
 							map.put(code, values);
 						}
@@ -126,20 +124,6 @@ public class EndnoteDataLoader extends DataLoader{
 		}
 
 		return rs;
-	}
-
-	/**
-	 * @return the fileName
-	 */
-	public String getFileName() {
-		return fileName;
-	}
-
-	/**
-	 * @param fileName the fileName to set
-	 */
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
 	}
 }
 

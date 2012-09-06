@@ -46,6 +46,8 @@ public abstract class DataLoader {
     
 	DataLoadingSpec loadingSpec;
 	
+	private String fileName;
+	
     /**
      * this method reads the End Notes and creates a RecordSet list
      * @return a RecordSet
@@ -58,5 +60,19 @@ public abstract class DataLoader {
 
 	public void setLoadingSpec(DataLoadingSpec spec) {
 		this.loadingSpec = spec;
+	}
+	
+	/**
+	 * @return the fileName
+	 */
+	public String getFileName() {
+		return fileName;
+	}
+
+	/**
+	 * @param fileName the fileName to set
+	 */
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 }

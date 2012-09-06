@@ -50,8 +50,6 @@ public class CSVDataLoader extends DataLoader{
 
 	static Logger logger = Logger.getLogger(CSVDataLoader.class);
 
-	private String fileName;
-
 	/*
 	 * Default constructor
 	 */
@@ -69,7 +67,7 @@ public class CSVDataLoader extends DataLoader{
 	public RecordSet loadData(){
 
 
-		if ((fileName==null)|| (fileName=="")){
+		if ((getFileName()==null)|| (getFileName()=="")){
 			logger.info("No File name!");
 			return null;
 		}
@@ -77,7 +75,7 @@ public class CSVDataLoader extends DataLoader{
 		RecordSet rs = new RecordSet();
 
 		try {
-			CSVReader reader = new CSVReader(new FileReader(fileName));
+			CSVReader reader = new CSVReader(new FileReader(getFileName()));
 			
 			String [] nextLine;
 			Boolean firstLine = true;
@@ -88,9 +86,9 @@ public class CSVDataLoader extends DataLoader{
 					firstLine = false;
 				}
 				else {
-					Map<String, List<String>> map = new HashMap<String, List<String>>();
+					Map<String, List<Object>> map = new HashMap<String, List<Object>>();
 					for (int i=0; i<nextLine.length; i++){
-						ArrayList<String> tmp = new ArrayList<String>();
+						ArrayList<Object> tmp = new ArrayList<Object>();
 						tmp.add(nextLine[i]);
 						map.put(headers[i], tmp);
 					}
@@ -105,20 +103,6 @@ public class CSVDataLoader extends DataLoader{
 		}
 
 		return rs;
-	}
-
-	/**
-	 * @return the fileName
-	 */
-	public String getFileName() {
-		return fileName;
-	}
-
-	/**
-	 * @param fileName the fileName to set
-	 */
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
 	}
 }
 

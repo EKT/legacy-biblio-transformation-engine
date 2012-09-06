@@ -62,8 +62,6 @@ public class BibTexDataLoader extends DataLoader{
 
 	static Logger logger = Logger.getLogger(BibTexDataLoader.class);
 
-	private String fileName;
-
 	/*
 	 * Default constructor
 	 */
@@ -80,7 +78,7 @@ public class BibTexDataLoader extends DataLoader{
 	public RecordSet loadData(){
 
 
-		if ((fileName==null)|| (fileName=="")){
+		if ((getFileName()==null)|| (getFileName()=="")){
 			logger.info("No File name!");
 			return null;
 		}
@@ -89,7 +87,7 @@ public class BibTexDataLoader extends DataLoader{
 
 		try {
 
-			Reader reader = new FileReader(fileName);
+			Reader reader = new FileReader(getFileName());
 			BibTeXDatabase database;
 
 			try {
@@ -118,7 +116,7 @@ public class BibTexDataLoader extends DataLoader{
 				for(BibTeXEntry entry : entries){
 					Map<Key, Value> fields = entry.getFields();
 					
-					Map<String, List<String>> map = new HashMap<String, List<String>>();
+					Map<String, List<Object>> map = new HashMap<String, List<Object>>();
 					
 					for (Key key : fields.keySet()){
 						Value value = entry.getField(key);
@@ -135,7 +133,7 @@ public class BibTexDataLoader extends DataLoader{
 
 							String plainTextString = printLaTeX(objects);
 							//System.out.println(plainTextString);
-							ArrayList<String> tmp = new ArrayList<String>();
+							ArrayList<Object> tmp = new ArrayList<Object>();
 							tmp.add(plainTextString);
 							map.put(key.getValue(), tmp);
 						} catch(Exception e){
@@ -179,20 +177,6 @@ public class BibTexDataLoader extends DataLoader{
 		LaTeXPrinter printer = new LaTeXPrinter();
 
 		return printer.print(objects);
-	}
-
-	/**
-	 * @return the fileName
-	 */
-	public String getFileName() {
-		return fileName;
-	}
-
-	/**
-	 * @param fileName the fileName to set
-	 */
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
 	}
 }
 

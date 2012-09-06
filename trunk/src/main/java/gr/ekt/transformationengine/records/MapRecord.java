@@ -38,14 +38,14 @@ import java.util.Map;
 
 public class MapRecord extends SimpleRecord{
     
-	public Map<String, List<String>> recordValue=new HashMap<String, List<String>>();
+	public Map<String, List<Object>> recordValue=new HashMap<String, List<Object>>();
    
     /**
      * Constructor
      * @param recordValue
      *
      */
-    public MapRecord(Map<String, List<String>> recordValue) {
+    public MapRecord(Map<String, List<Object>> recordValue) {
         
         this.recordValue = recordValue;
     }
@@ -63,8 +63,8 @@ public class MapRecord extends SimpleRecord{
      * @param columnSpec
      * @return the List of the values
      */
-    public List<String> getByName(String fieldName){
-        List<String> result = new ArrayList<String>();
+    public List<Object> getByName(String fieldName){
+        List<Object> result = new ArrayList<Object>();
         if (recordValue.get(fieldName)!=null){
             result= recordValue.get(fieldName);
         }
@@ -72,21 +72,21 @@ public class MapRecord extends SimpleRecord{
     }
     
     public void printByName(String fieldName) {
-        List<String> result=(List<String>) recordValue.get(fieldName);
-        for (String s : result)
-        	System.out.println(s);
+        List<Object> result=(List<Object>) recordValue.get(fieldName);
+        for (Object s : result)
+        	System.out.println(s.toString());
     }
 	
 	/* (non-Javadoc)
 	 * @see gr.ekt.transformationengine.records.SimpleRecord#addValueToField(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public void addValueToField(String fieldName, String fieldValue) {
+	public void addValueToField(String fieldName, Object fieldValue) {
 		if (recordValue.containsKey(fieldName)){
 			recordValue.get(fieldName).add(fieldValue);
 		}
 		else {
-			ArrayList<String> tmp = new ArrayList<String>();
+			ArrayList<Object> tmp = new ArrayList<Object>();
 			tmp.add(fieldValue);
 			recordValue.put(fieldName, tmp);
 		}
@@ -104,8 +104,8 @@ public class MapRecord extends SimpleRecord{
 	 * @see gr.ekt.transformationengine.records.SimpleRecord#removeValueFromField(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public void removeValueFromField(String fieldName, String value) {
-		List<String> values = recordValue.get(fieldName);
+	public void removeValueFromField(String fieldName, Object value) {
+		List<Object> values = recordValue.get(fieldName);
 		if (values.contains(value)){
 			values.remove(value);
 		}
