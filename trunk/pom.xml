@@ -3,7 +3,7 @@
 
 	<groupId>gr.ekt</groupId>
 	<artifactId>biblio-transformation-engine</artifactId>
-	<version>0.81-SNAPSHOT</version>
+	<version>0.81</version>
 	<packaging>jar</packaging>
 
 	<name>biblio-transformation-engine</name>
