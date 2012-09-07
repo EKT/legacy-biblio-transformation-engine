@@ -27,13 +27,13 @@
 
 	<scm>
 		<connection>
-			scm:svn:http://biblio-transformation-engine.googlecode.com/svn/tags/v0.81
+			scm:svn:http://biblio-transformation-engine.googlecode.com/svn/tags/biblio-transformation-engine-0.81
 		</connection>
 		<developerConnection>
-			scm:svn:https://biblio-transformation-engine.googlecode.com/svn/tags/v0.81
+			scm:svn:https://biblio-transformation-engine.googlecode.com/svn/biblio-transformation-engine-0.81
 		</developerConnection>
 		<url>
-			http://biblio-transformation-engine.googlecode.com/svn/tags/v0.81
+			http://biblio-transformation-engine.googlecode.com/svn/tags/biblio-transformation-engine-0.81
 		</url>
 	</scm>
 
