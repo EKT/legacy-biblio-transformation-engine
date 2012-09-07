@@ -20,7 +20,11 @@
 
 	<developers>
 		<developer>
-			<id>Kostas Stamatis (kstamatis@ekt.gr)</id>
+			<id>kstamatis</id>
+			<name>Kostas Stamatis (kstamatis@ekt.gr)</name>
+		</developer>
+		<developer>
+			<id>nhoussos</id>
 			<name>Nikos Houssos (nhoussos@ekt.gr)</name>
 		</developer>
 	</developers>
