@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keymapping>
+    <map>
+    	<!-- Title -->
+        <key_before>TI</key_before>
+        <key_after>dc.title</key_after>
+    </map>
+    <map>
+    	<!-- Author -->
+        <key_before>AU</key_before>
+        <key_after>dc.contributor.creator</key_after>
+    </map>
+    <map>
+    	<!-- Publication Title -->
+        <key_before>PT</key_before>
+        <key_after>dc.type</key_after>
+    </map>
+    <map>
+    	<!-- Book Authors -->
+        <key_before>BA</key_before>
+        <key_after>dc.contributor.creator</key_after>
+    </map>
+    <map>
+    	<!-- Editors -->
+        <key_before>BE</key_before>
+        <key_after>dc.contributor</key_after>
+    </map>
+	<map>
+    	<!-- Publication Name -->
+        <key_before>SO</key_before>
+        <key_after>dc.source</key_after>
+    </map>
+	<map>
+    	<!-- Language -->
+        <key_before>LA</key_before>
+        <key_after>dc.language</key_after>
+    </map>
+	<map>
+    	<!-- Conference Title -->
+        <key_before>CT</key_before>
+        <key_after>dc.source</key_after>
+    </map>
+	<map>
+    	<!-- Author Keywords -->
+        <key_before>DE</key_before>
+        <key_after>dc.subject</key_after>
+    </map>
+	<map>
+    	<!-- Abstract -->
+        <key_before>AB</key_before>
+        <key_after>dc.description.abstract</key_after>
+    </map>
+	<map>
+    	<!-- Publisher -->
+        <key_before>PU</key_before>
+        <key_after>dc.publisher</key_after>
+    </map>
+    <map>
+    	<!-- Subject Category -->
+        <key_before>SC</key_before>
+        <key_after>dc.subject</key_after>
+    </map>
+	<map>
+    	<!-- International Standard Serial Number (ISSN) -->
+        <key_before>SN</key_before>
+        <key_after>dc.identifier</key_after>
+    </map>
+    <map>
+    	<!-- International Standard Book Number (ISBN) -->
+        <key_before>BN</key_before>
+        <key_after>dc.identifier</key_after>
+    </map>
+    <map>
+    	<!-- Book Digital Object Identifier (DOI) -->
+        <key_before>D2</key_before>
+        <key_after>dc.identifier</key_after>
+    </map>
+    <map>
+    	<!-- Digital Object Identifier (DOI) -->
+        <key_before>DI</key_before>
+        <key_after>dc.identifier</key_after>
+    </map>
+    <map>
+    	<!-- Publication Date -->
+        <key_before>PD</key_before>
+        <key_after>dc.date</key_after>
+    </map>
+    <map>
+    	<!-- Publication Year -->
+        <key_before>PY</key_before>
+        <key_after>dc.date</key_after>
+    </map>
+
+</keymapping>
