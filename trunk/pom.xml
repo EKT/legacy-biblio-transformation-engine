@@ -3,7 +3,7 @@
 
 	<groupId>gr.ekt</groupId>
 	<artifactId>biblio-transformation-engine</artifactId>
-	<version>0.82-SNAPSHOT</version>
+	<version>0.82</version>
 	<packaging>jar</packaging>
 
 	<name>biblio-transformation-engine</name>
@@ -31,13 +31,13 @@
 
 	<scm>
 		<connection>
-			scm:svn:http://biblio-transformation-engine.googlecode.com/svn/tags/biblio-transformation-engine-0.81
+			scm:svn:http://biblio-transformation-engine.googlecode.com/svn/tags/biblio-transformation-engine-0.82
 		</connection>
 		<developerConnection>
-			scm:svn:https://biblio-transformation-engine.googlecode.com/svn/tags/biblio-transformation-engine-0.81
+			scm:svn:https://biblio-transformation-engine.googlecode.com/svn/tags/biblio-transformation-engine-0.82
 		</developerConnection>
 		<url>
-			http://biblio-transformation-engine.googlecode.com/svn/tags/biblio-transformation-engine-0.81
+			http://biblio-transformation-engine.googlecode.com/svn/tags/biblio-transformation-engine-0.82
 		</url>
 	</scm>
 
