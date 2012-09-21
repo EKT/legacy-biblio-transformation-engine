@@ -84,13 +84,6 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.marc4j</groupId>
-			<artifactId>marc4j</artifactId>
-			<version>b8</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/marc4j.jar</systemPath>
-		</dependency>
-		<dependency>
 			<groupId>net.sourceforge.jexcelapi</groupId>
 			<artifactId>jxl</artifactId>
 			<version>2.6</version>
